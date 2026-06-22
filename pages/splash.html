@@ -1,0 +1,139 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0"><title>SiraLink</title><link rel="icon"
+type="image/png"
+href="../assets/images/branding/favicon.png"><link rel="stylesheet"
+href="../assets/css/dashboard.css"><style>
+
+.splash-page{
+margin:0;
+padding:0;
+height:100vh;
+
+background:
+linear-gradient(
+rgba(0,0,0,.55),
+rgba(0,0,0,.55)
+),
+url('../assets/images/backgrounds/login-bg.jpg');
+
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.splash-overlay{
+padding:20px;
+color:white;
+}
+
+.splash-logo{
+width:140px;
+max-width:80%;
+margin-bottom:20px;
+
+animation:
+float 2s ease-in-out infinite;
+}
+
+.splash-overlay h1{
+margin:0;
+font-size:42px;
+font-weight:700;
+}
+
+.splash-overlay p{
+margin-top:10px;
+font-size:18px;
+opacity:.9;
+}
+
+.loader{
+width:220px;
+height:8px;
+background:
+rgba(255,255,255,.2);
+
+border-radius:20px;
+
+margin:
+30px auto 15px;
+
+overflow:hidden;
+}
+
+.loader span{
+display:block;
+height:100%;
+width:0%;
+
+background:#2563eb;
+
+animation:
+loading 3s linear forwards;
+}
+
+.loading-text{
+font-size:15px;
+opacity:.9;
+}
+
+@keyframes loading{
+
+from{
+width:0%;
+}
+
+to{
+width:100%;
+}
+
+}
+
+@keyframes float{
+
+0%{
+transform:
+translateY(0);
+}
+
+50%{
+transform:
+translateY(-10px);
+}
+
+100%{
+transform:
+translateY(0);
+}
+
+}
+
+</style></head><body class="splash-page"><div class="splash-overlay"><img
+src="../assets/images/branding/logo.png"
+alt="SiraLink Logo"
+class="splash-logo">
+
+<h1>SiraLink</h1><p>
+Smart Recruitment, Better Future
+</p><div class="loader">
+<span></span>
+</div><div class="loading-text">
+Loading...
+</div></div><script>
+
+setTimeout(() => {
+
+window.location.href =
+"home.html";
+
+},3000);
+
+</script></body>
+</html>

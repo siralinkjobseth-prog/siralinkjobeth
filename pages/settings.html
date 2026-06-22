@@ -1,0 +1,253 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0"><title>Settings - SiraLink</title><link rel="icon"
+href="../assets/images/branding/favicon.png"><link rel="stylesheet"
+href="../assets/css/main.css"><style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+padding-bottom:90px;
+}
+
+.header{
+background:#0A3D91;
+color:white;
+padding:20px;
+text-align:center;
+}
+
+.logo{
+height:45px;
+margin-bottom:10px;
+}
+
+.container{
+padding:15px;
+}
+
+.card{
+background:white;
+border-radius:18px;
+padding:20px;
+margin-bottom:15px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+color:#0A3D91;
+margin-bottom:15px;
+font-size:18px;
+}
+
+.setting-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:12px 0;
+border-bottom:1px solid #eee;
+}
+
+.setting-item:last-child{
+border-bottom:none;
+}
+
+.label{
+font-size:15px;
+color:#333;
+}
+
+.switch{
+position:relative;
+display:inline-block;
+width:50px;
+height:26px;
+}
+
+.switch input{
+display:none;
+}
+
+.slider{
+position:absolute;
+top:0;
+left:0;
+right:0;
+bottom:0;
+cursor:pointer;
+background:#ccc;
+border-radius:30px;
+transition:.3s;
+}
+
+.slider:before{
+content:"";
+position:absolute;
+width:20px;
+height:20px;
+left:3px;
+bottom:3px;
+background:white;
+border-radius:50%;
+transition:.3s;
+}
+
+input:checked + .slider{
+background:#0A3D91;
+}
+
+input:checked + .slider:before{
+transform:translateX(24px);
+}
+
+.select{
+padding:8px;
+border-radius:8px;
+border:1px solid #ddd;
+}
+
+.btn{
+width:100%;
+padding:14px;
+border:none;
+border-radius:12px;
+margin-top:10px;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+}
+
+.primary{
+background:#0A3D91;
+color:white;
+}
+
+.secondary{
+background:#eef4ff;
+color:#0A3D91;
+}
+
+.danger{
+background:#dc3545;
+color:white;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:white;
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+box-shadow:0 -2px 10px rgba(0,0,0,.1);
+}
+
+.bottom-nav a{
+text-decoration:none;
+color:#0A3D91;
+font-size:14px;
+font-weight:bold;
+}
+
+</style></head><body><div class="header"><img
+src="../assets/images/branding/logo-white.png"
+class="logo"
+alt="SiraLink">
+
+<h1>⚙ Settings</h1></div><div class="container"><div class="card"><h2>Notifications</h2><div class="setting-item">
+<span class="label">Push Notifications</span>
+<label class="switch">
+<input type="checkbox" checked id="pushNotifications">
+<span class="slider"></span>
+</label>
+</div><div class="setting-item">
+<span class="label">Job Alerts</span>
+<label class="switch">
+<input type="checkbox" checked id="jobAlerts">
+<span class="slider"></span>
+</label>
+</div><div class="setting-item">
+<span class="label">Email Notifications</span>
+<label class="switch">
+<input type="checkbox" id="emailNotifications">
+<span class="slider"></span>
+</label>
+</div></div><div class="card"><h2>Appearance</h2><div class="setting-item"><span class="label">Language</span>
+
+<select class="select" id="language"><option value="English">
+English
+</option><option value="Amharic">
+Amharic
+</option></select></div><div class="setting-item"><span class="label">Theme</span>
+
+<select class="select" id="theme"><option value="Light">
+Light
+</option><option value="Dark">
+Dark
+</option></select></div></div><div class="card"><h2>Privacy</h2><div class="setting-item">
+<span class="label">Profile Visibility</span>
+<label class="switch">
+<input type="checkbox" checked id="profileVisibility">
+<span class="slider"></span>
+</label>
+</div><div class="setting-item">
+<span class="label">Show Contact Info</span>
+<label class="switch">
+<input type="checkbox" id="showContact">
+<span class="slider"></span>
+</label>
+</div></div><div class="card"><h2>Account</h2><button
+class="btn primary"
+onclick="location.href='edit-profile.html'">
+
+✏️ Edit Profile
+
+</button><button
+class="btn secondary"
+onclick="location.href='profile.html'">
+
+👤 View Profile
+
+</button><button
+class="btn danger"
+id="logoutBtn">
+
+🚪 Logout
+
+</button></div></div><div class="bottom-nav"><a href="home.html">
+🏠 Home
+</a><a href="jobs.html">
+💼 Jobs
+</a><a href="notifications.html">
+🔔 Alerts
+</a><a href="profile.html">
+👤 Profile
+</a></div><script>
+
+document
+.getElementById("logoutBtn")
+.addEventListener("click",()=>{
+
+const confirmed =
+confirm(
+"Are you sure you want to logout?"
+);
+
+if(!confirmed) return;
+
+localStorage.clear();
+
+window.location.href =
+"../index.html";
+
+});
+
+</script></body></html>

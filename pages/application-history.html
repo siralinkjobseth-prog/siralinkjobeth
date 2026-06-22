@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Application History</title>
+
+<link rel="stylesheet"
+href="../assets/css/main.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+padding-bottom:90px;
+}
+
+.header{
+background:#0A3D91;
+color:white;
+padding:20px;
+}
+
+.header h1{
+font-size:24px;
+}
+
+.container{
+padding:15px;
+}
+
+.application-card{
+background:white;
+padding:18px;
+border-radius:18px;
+margin-bottom:15px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.job-title{
+font-size:20px;
+font-weight:bold;
+color:#222;
+margin-bottom:5px;
+}
+
+.company{
+color:#666;
+margin-bottom:10px;
+}
+
+.meta{
+display:flex;
+justify-content:space-between;
+flex-wrap:wrap;
+gap:10px;
+margin-bottom:12px;
+}
+
+.date{
+font-size:13px;
+color:#888;
+}
+
+.status{
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.pending{
+background:#fff3cd;
+color:#856404;
+}
+
+.reviewed{
+background:#d1ecf1;
+color:#0c5460;
+}
+
+.shortlisted{
+background:#cce5ff;
+color:#004085;
+}
+
+.hired{
+background:#d4edda;
+color:#155724;
+}
+
+.rejected{
+background:#f8d7da;
+color:#721c24;
+}
+
+.btn{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#0A3D91;
+color:white;
+font-weight:bold;
+cursor:pointer;
+}
+
+.empty{
+display:none;
+text-align:center;
+padding:40px 20px;
+color:#777;
+}
+
+.bottom-nav{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:white;
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+box-shadow:0 -2px 10px rgba(0,0,0,.1);
+}
+
+.bottom-nav a{
+text-decoration:none;
+color:#0A3D91;
+font-size:14px;
+font-weight:bold;
+}
+
+.active{
+color:#0088cc;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="header">
+<h1>📄 Application History</h1>
+</div>
+
+<div
+class="container"
+id="applicationsContainer">
+
+<div style="text-align:center">
+Loading applications...
+</div>
+
+</div>
+
+<div
+class="empty"
+id="emptyState">
+
+<h2>No Applications Yet</h2>
+
+<p>
+You have not applied for any jobs.
+</p>
+
+</div>
+
+<div class="bottom-nav">
+
+<a href="home.html">
+🏠 Home
+</a>
+
+<a href="jobs.html">
+💼 Jobs
+</a>
+
+<a href="notifications.html">
+🔔 Alerts
+</a>
+
+<a href="profile.html"
+class="active">
+👤 Profile
+</a>
+
+</div>
+
+<script
+type="module"
+src="../js/profile/application-history.js">
+</script>
+
+</body>
+</html>
