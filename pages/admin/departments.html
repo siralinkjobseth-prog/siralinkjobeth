@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Departments Management - SiraLink Admin</title>
+
+<link rel="stylesheet" href="../../assets/css/admin.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+.header{
+background:#0A3D91;
+color:white;
+padding:20px;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+color:#0A3D91;
+margin-bottom:15px;
+}
+
+input{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.btn{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.primary{
+background:#0A3D91;
+color:white;
+}
+
+.edit{
+background:#ffc107;
+color:#222;
+}
+
+.delete{
+background:#dc3545;
+color:white;
+}
+
+.department-item{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px;
+border-bottom:1px solid #eee;
+}
+
+.department-item:last-child{
+border-bottom:none;
+}
+
+.actions{
+display:flex;
+gap:10px;
+}
+
+.success{
+display:none;
+background:#d4edda;
+color:#155724;
+padding:12px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+@media(max-width:768px){
+
+.department-item{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Departments Management</h1>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Add Department</h2>
+
+<div
+class="success"
+id="successBox">
+Department added successfully.
+</div>
+
+<form id="departmentForm">
+
+<input
+type="text"
+id="departmentName"
+placeholder="Department Name"
+required>
+
+<button
+type="submit"
+class="btn primary">
+Add Department
+</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h2>Departments List</h2>
+
+<div id="departmentList">
+
+<div class="department-item">
+
+<div>Information Technology (IT)</div>
+
+<div class="actions">
+
+<button
+class="btn edit"
+onclick="editDepartment(this)">
+Edit
+</button>
+
+<button
+class="btn delete"
+onclick="deleteDepartment(this)">
+Delete
+</button>
+
+</div>
+
+</div>
+
+<div class="department-item">
+
+<div>Finance</div>
+
+<div class="actions">
+
+<button
+class="btn edit"
+onclick="editDepartment(this)">
+Edit
+</button>
+
+<button
+class="btn delete"
+onclick="deleteDepartment(this)">
+Delete
+</button>
+
+</div>
+
+</div>
+
+<div class="department-item">
+
+<div>Human Resources</div>
+
+<div class="actions">
+
+<button
+class="btn edit"
+onclick="editDepartment(this)">
+Edit
+</button>
+
+<button
+class="btn delete"
+onclick="deleteDepartment(this)">
+Delete
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const form =
+document.getElementById(
+"departmentForm"
+);
+
+form.addEventListener(
+"submit",
+function(e){
+
+e.preventDefault();
+
+const name =
+document.getElementById(
+"departmentName"
+).value;
+
+const item =
+document.createElement("div");
+
+item.className =
+"department-item";
+
+item.innerHTML = `
+
+<div>${name}</div>
+
+<div class="actions">
+
+<button
+class="btn edit"
+onclick="editDepartment(this)">
+Edit
+</button>
+
+<button
+class="btn delete"
+onclick="deleteDepartment(this)">
+Delete
+</button>
+
+</div>
+
+`;
+
+document
+.getElementById(
+"departmentList"
+)
+.appendChild(item);
+
+document
+.getElementById(
+"successBox"
+)
+.style.display="block";
+
+form.reset();
+
+/*
+
+SUPABASE INSERT
+
+await supabase
+.from("departments")
+.insert([{name}]);
+
+*/
+
+});
+
+function editDepartment(btn){
+
+const currentName =
+btn.closest(
+".department-item"
+).children[0];
+
+const newName =
+prompt(
+"Edit Department",
+currentName.textContent
+);
+
+if(newName){
+
+currentName.textContent =
+newName;
+
+/*
+
+SUPABASE UPDATE
+
+await supabase
+.from("departments")
+.update({name:newName})
+.eq("id",departmentId);
+
+*/
+
+}
+
+}
+
+function deleteDepartment(btn){
+
+if(
+confirm(
+"Delete this department?"
+)
+){
+
+btn.closest(
+".department-item"
+).remove();
+
+/*
+
+SUPABASE DELETE
+
+await supabase
+.from("departments")
+.delete()
+.eq("id",departmentId);
+
+*/
+
+}
+
+}
+
+</script>
+
+</body>
+</html>

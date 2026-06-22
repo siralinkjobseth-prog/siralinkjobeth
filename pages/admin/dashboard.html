@@ -1,0 +1,119 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0"><title>SiraLink Admin Dashboard</title><link rel="icon"
+type="image/png"
+href="../../assets/images/branding/favicon.png"><link rel="stylesheet"
+href="../../assets/css/admin.css"><style>
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#f4f6f9;
+}
+
+.admin-header{
+    background:#0f172a;
+    color:white;
+    padding:15px 25px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.brand img{
+    width:45px;
+    height:45px;
+}
+
+.admin-stats{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(220px,1fr));
+    gap:20px;
+    padding:25px;
+}
+
+.stat{
+    background:white;
+    padding:25px;
+    border-radius:15px;
+    text-align:center;
+    box-shadow:0 4px 10px rgba(0,0,0,.08);
+}
+
+.stat h3{
+    font-size:32px;
+    margin:0;
+    color:#2563eb;
+}
+
+.admin-menu{
+    display:grid;
+    grid-template-columns:
+    repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+    padding:25px;
+}
+
+.admin-menu a{
+    text-decoration:none;
+    background:#2563eb;
+    color:white;
+    padding:16px;
+    border-radius:12px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.admin-menu a:hover{
+    opacity:.9;
+}
+
+.footer{
+    text-align:center;
+    padding:20px;
+    color:#64748b;
+}
+
+</style></head><body><header class="admin-header"><div class="brand"><img
+src="../../assets/images/branding/logo.png"
+alt="SiraLink">
+
+<h2>SiraLink Admin</h2></div></header><section class="admin-stats"><div class="stat">
+<h3 id="totalUsers">0</h3>
+<p>Total Users</p>
+</div><div class="stat">
+<h3 id="totalJobs">0</h3>
+<p>Total Jobs</p>
+</div><div class="stat">
+<h3 id="activeUsers">0</h3>
+<p>Active Users</p>
+</div><div class="stat">
+<h3 id="notificationsSent">0</h3>
+<p>Notifications Sent</p>
+</div></section><section class="admin-menu"><a href="add-job.html">
+➕ Add Job
+</a><a href="jobs.html">
+📋 Manage Jobs
+</a><a href="users.html">
+👥 Users
+</a><a href="analytics.html">
+📊 Analytics
+</a><a href="broadcasts.html">
+📢 Broadcast
+</a><a href="departments.html">
+🏢 Departments
+</a><a href="settings.html">
+⚙️ Settings
+</a></section><div class="footer">
+© 2026 SiraLink Admin Dashboard
+</div><script type="module"
+src="../../js/admin/dashboard.js">
+</script></body>
+</html>

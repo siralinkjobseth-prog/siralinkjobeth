@@ -1,1 +1,326 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0"><title>Users Management - SiraLink Admin</title><link rel="icon"
+type="image/png"
+href="../../assets/images/branding/favicon.png"><link rel="stylesheet"
+href="../../assets/css/admin.css"><style>
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f7fc;
+color:#1e293b;
+}
+
+.header{
+background:#0f172a;
+color:white;
+padding:20px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.brand{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.brand img{
+width:55px;
+height:55px;
+object-fit:contain;
+}
+
+.back-link{
+color:white;
+text-decoration:none;
+font-size:14px;
+}
+
+.container{
+padding:20px;
+}
+
+.top-bar{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+gap:10px;
+flex-wrap:wrap;
+}
+
+.search-box{
+flex:1;
+min-width:250px;
+}
+
+.search-box input{
+width:100%;
+padding:13px;
+border:1px solid #dbe2ea;
+border-radius:12px;
+outline:none;
+}
+
+.search-box input:focus{
+border-color:#2563eb;
+}
+
+.stats{
+display:grid;
+grid-template-columns:
+repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-bottom:20px;
+}
+
+.stat-card{
+background:white;
+padding:20px;
+border-radius:16px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+text-align:center;
+}
+
+.stat-card h2{
+color:#2563eb;
+font-size:28px;
+margin-bottom:5px;
+}
+
+.table-card{
+background:white;
+border-radius:16px;
+overflow:hidden;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#2563eb;
+color:white;
+padding:14px;
+text-align:left;
+}
+
+td{
+padding:14px;
+border-bottom:1px solid #eee;
+}
+
+.status{
+padding:6px 12px;
+border-radius:20px;
+font-size:12px;
+font-weight:bold;
+}
+
+.active{
+background:#dcfce7;
+color:#166534;
+}
+
+.inactive{
+background:#fee2e2;
+color:#991b1b;
+}
+
+.btn{
+padding:8px 12px;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:12px;
+font-weight:bold;
+margin-right:5px;
+}
+
+.view{
+background:#2563eb;
+color:white;
+}
+
+.delete{
+background:#dc2626;
+color:white;
+}
+
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+table{
+display:block;
+overflow-x:auto;
+white-space:nowrap;
+}
+
+}
+
+</style></head><body><div class="header"><div class="brand"><img
+src="../../assets/images/branding/logo.png"
+alt="SiraLink Logo">
+
+<div><h1>Users Management</h1><a
+href="dashboard.html"
+class="back-link">
+
+← Back Dashboard
+
+</a></div></div></div><div class="container"><div class="stats"><div class="stat-card">
+<h2 id="totalUsers">1250</h2>
+<p>Total Users</p>
+</div><div class="stat-card">
+<h2 id="activeUsers">1080</h2>
+<p>Active Users</p>
+</div><div class="stat-card">
+<h2 id="newUsers">85</h2>
+<p>New This Month</p>
+</div></div><div class="top-bar"><div class="search-box"><input
+type="text"
+id="searchInput"
+placeholder="Search users...">
+
+</div></div><div class="table-card"><table id="usersTable"><thead><tr>
+<th>Name</th>
+<th>Email</th>
+<th>Department</th>
+<th>Status</th>
+<th>Actions</th>
+</tr></thead><tbody><tr>
+<td>Abebe Kebede</td>
+<td>abebe@email.com</td>
+<td>IT</td>
+<td>
+<span class="status active">
+Active
+</span>
+</td>
+<td>
+<button
+class="btn view"
+onclick="viewUser('Abebe Kebede')">
+View
+</button><button
+class="btn delete"
+onclick="deleteUser(this)">
+Delete
+</button>
+
+</td>
+</tr><tr>
+<td>Hana Tesfaye</td>
+<td>hana@email.com</td>
+<td>Finance</td>
+<td>
+<span class="status active">
+Active
+</span>
+</td>
+<td>
+<button
+class="btn view"
+onclick="viewUser('Hana Tesfaye')">
+View
+</button><button
+class="btn delete"
+onclick="deleteUser(this)">
+Delete
+</button>
+
+</td>
+</tr><tr>
+<td>Samuel Bekele</td>
+<td>samuel@email.com</td>
+<td>Engineering</td>
+<td>
+<span class="status inactive">
+Inactive
+</span>
+</td>
+<td>
+<button
+class="btn view"
+onclick="viewUser('Samuel Bekele')">
+View
+</button><button
+class="btn delete"
+onclick="deleteUser(this)">
+Delete
+</button>
+
+</td>
+</tr></tbody></table></div></div><script>
+
+const searchInput =
+document.getElementById("searchInput");
+
+searchInput.addEventListener(
+"keyup",
+function(){
+
+const value =
+this.value.toLowerCase();
+
+const rows =
+document.querySelectorAll(
+"#usersTable tbody tr"
+);
+
+rows.forEach(row=>{
+
+row.style.display =
+row.innerText.toLowerCase()
+.includes(value)
+? ""
+: "none";
+
+});
+
+});
+
+function viewUser(name){
+
+alert(
+"Viewing profile: " + name
+);
+
+}
+
+function deleteUser(button){
+
+const confirmed =
+confirm(
+"Delete this user?"
+);
+
+if(!confirmed) return;
+
+button
+.closest("tr")
+.remove();
+
+alert(
+"User deleted successfully."
+);
+
+}
+
+</script></body>
+</html>

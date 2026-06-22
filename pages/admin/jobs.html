@@ -1,0 +1,214 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0"><title>SiraLink Admin Jobs</title><link rel="icon"
+type="image/png"
+href="../../assets/images/branding/favicon.png"><link rel="stylesheet"
+href="../../assets/css/admin.css"><style>
+
+body{
+background:#f4f7fc;
+font-family:Arial,sans-serif;
+margin:0;
+padding:20px;
+color:#1e293b;
+}
+
+.header{
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:20px;
+background:white;
+padding:20px;
+border-radius:18px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.header-left{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.logo{
+width:55px;
+height:55px;
+object-fit:contain;
+}
+
+.header h1{
+margin:0;
+font-size:24px;
+}
+
+.back-btn{
+text-decoration:none;
+color:#2563eb;
+font-weight:600;
+}
+
+.top-bar{
+display:flex;
+gap:10px;
+margin-bottom:20px;
+}
+
+#searchInput{
+flex:1;
+padding:14px;
+border:1px solid #ddd;
+border-radius:12px;
+outline:none;
+font-size:15px;
+}
+
+.add-btn{
+background:#2563eb;
+color:white;
+text-decoration:none;
+padding:14px 20px;
+border-radius:12px;
+font-weight:600;
+}
+
+.stats{
+background:white;
+padding:18px;
+border-radius:16px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.jobs-banner{
+width:100%;
+border-radius:20px;
+margin-bottom:20px;
+display:block;
+}
+
+#jobsContainer{
+display:grid;
+gap:15px;
+}
+
+.job-card{
+background:white;
+border-radius:18px;
+padding:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.company-row{
+display:flex;
+align-items:center;
+gap:12px;
+margin-bottom:12px;
+}
+
+.company-logo{
+width:50px;
+height:50px;
+border-radius:10px;
+object-fit:cover;
+}
+
+.job-header h3{
+margin:0;
+color:#1e293b;
+}
+
+.job-body p{
+margin:8px 0;
+color:#64748b;
+}
+
+.job-actions{
+margin-top:15px;
+display:flex;
+gap:10px;
+}
+
+.edit-btn{
+background:#16a34a;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.delete-btn{
+background:#dc2626;
+color:white;
+border:none;
+padding:10px 15px;
+border-radius:10px;
+cursor:pointer;
+}
+
+.loading,
+.error,
+.empty{
+background:white;
+padding:25px;
+border-radius:16px;
+text-align:center;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+@media(max-width:768px){
+
+.header{
+flex-direction:column;
+align-items:flex-start;
+gap:15px;
+}
+
+.top-bar{
+flex-direction:column;
+}
+
+.add-btn{
+text-align:center;
+}
+
+}
+
+</style></head><body><img
+src="../../assets/images/banners/jobs-banner.jpg"
+alt="Jobs Banner"
+class="jobs-banner">
+
+<div class="header"><div class="header-left"><img
+src="../../assets/images/branding/logo.png"
+alt="SiraLink"
+class="logo">
+
+<div><h1>Jobs Management</h1><a
+href="dashboard.html"
+class="back-btn">
+
+← Back Dashboard
+
+</a></div></div><a
+href="add-job.html"
+class="add-btn">
+
++ Add Job
+
+</a></div><div class="top-bar"><input
+type="text"
+id="searchInput"
+placeholder="Search by title, company or department">
+
+</div><div class="stats"><strong>Total Jobs:</strong>
+
+<span id="totalJobs">
+0
+</span></div><div id="jobsContainer"><div class="loading">Loading jobs...
+
+</div></div><script
+type="module"
+src="../../js/admin/jobs.js">
+</script></body>
+</html>

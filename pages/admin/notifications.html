@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Notifications - SiraLink</title>
+
+<link rel="stylesheet" href="../../assets/css/admin.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+.header{
+background:#0A3D91;
+color:white;
+padding:20px;
+}
+
+.container{
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+color:#0A3D91;
+margin-bottom:15px;
+}
+
+textarea,
+input,
+select{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.btn{
+background:#0A3D91;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.btn:hover{
+opacity:.9;
+}
+
+.notification-item{
+padding:15px;
+border-bottom:1px solid #eee;
+}
+
+.notification-item:last-child{
+border-bottom:none;
+}
+
+.notification-title{
+font-weight:bold;
+margin-bottom:5px;
+}
+
+.notification-date{
+font-size:12px;
+color:#777;
+}
+
+.success{
+display:none;
+background:#d4edda;
+color:#155724;
+padding:12px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="header">
+<h1>Notifications Management</h1>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Create Notification</h2>
+
+<div
+class="success"
+id="successMessage">
+Notification sent successfully.
+</div>
+
+<form id="notificationForm">
+
+<input
+type="text"
+id="title"
+placeholder="Notification Title"
+required>
+
+<textarea
+id="message"
+rows="5"
+placeholder="Notification Message"
+required></textarea>
+
+<select id="audience">
+
+<option value="all">
+All Users
+</option>
+
+<option value="job_seekers">
+Job Seekers
+</option>
+
+<option value="admins">
+Admins
+</option>
+
+</select>
+
+<button
+type="submit"
+class="btn">
+Send Notification
+</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h2>Recent Notifications</h2>
+
+<div id="notificationsList">
+
+<div class="notification-item">
+
+<div class="notification-title">
+New Engineering Jobs Available
+</div>
+
+<div>
+Check the latest engineering opportunities.
+</div>
+
+<div class="notification-date">
+2026-06-21
+</div>
+
+</div>
+
+<div class="notification-item">
+
+<div class="notification-title">
+Profile Completion Reminder
+</div>
+
+<div>
+Complete your profile to improve matches.
+</div>
+
+<div class="notification-date">
+2026-06-20
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+document
+.getElementById("notificationForm")
+.addEventListener("submit",function(e){
+
+e.preventDefault();
+
+const title =
+document.getElementById("title").value;
+
+const message =
+document.getElementById("message").value;
+
+const list =
+document.getElementById(
+"notificationsList"
+);
+
+const item =
+document.createElement("div");
+
+item.className =
+"notification-item";
+
+item.innerHTML = `
+<div class="notification-title">
+${title}
+</div>
+
+<div>
+${message}
+</div>
+
+<div class="notification-date">
+${new Date().toLocaleDateString()}
+</div>
+`;
+
+list.prepend(item);
+
+document
+.getElementById("successMessage")
+.style.display = "block";
+
+this.reset();
+
+/*
+
+SUPABASE INSERT
+
+await supabase
+.from("notifications")
+.insert([{
+title,
+message
+}]);
+
+*/
+
+});
+
+</script>
+
+</body>
+</html>

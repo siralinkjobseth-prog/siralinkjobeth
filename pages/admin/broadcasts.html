@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Broadcast Messages - SiraLink Admin</title>
+
+<link rel="stylesheet" href="../../assets/css/admin.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+.header{
+background:#0A3D91;
+color:white;
+padding:20px;
+}
+
+.container{
+padding:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+margin-bottom:15px;
+color:#0A3D91;
+}
+
+input,
+textarea,
+select{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+textarea{
+resize:none;
+height:150px;
+}
+
+.btn{
+background:#0A3D91;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.btn:hover{
+opacity:.9;
+}
+
+.success{
+display:none;
+background:#d4edda;
+color:#155724;
+padding:12px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.broadcast-item{
+padding:15px;
+border-bottom:1px solid #eee;
+}
+
+.broadcast-item:last-child{
+border-bottom:none;
+}
+
+.broadcast-title{
+font-weight:bold;
+margin-bottom:6px;
+}
+
+.broadcast-meta{
+font-size:12px;
+color:#777;
+margin-top:6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Broadcast Messages</h1>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Create Broadcast</h2>
+
+<div
+class="success"
+id="successBox">
+Broadcast sent successfully.
+</div>
+
+<form id="broadcastForm">
+
+<input
+type="text"
+id="title"
+placeholder="Broadcast Title"
+required>
+
+<select id="target">
+
+<option value="all">
+All Users
+</option>
+
+<option value="jobseekers">
+Job Seekers
+</option>
+
+<option value="admins">
+Admins
+</option>
+
+</select>
+
+<textarea
+id="message"
+placeholder="Write your broadcast message..."
+required></textarea>
+
+<button
+type="submit"
+class="btn">
+Send Broadcast
+</button>
+
+</form>
+
+</div>
+
+<div class="card">
+
+<h2>Recent Broadcasts</h2>
+
+<div id="broadcastList">
+
+<div class="broadcast-item">
+
+<div class="broadcast-title">
+System Maintenance Notice
+</div>
+
+<div>
+The platform will undergo maintenance tonight.
+</div>
+
+<div class="broadcast-meta">
+Sent to All Users • 2026-06-21
+</div>
+
+</div>
+
+<div class="broadcast-item">
+
+<div class="broadcast-title">
+New Jobs Added
+</div>
+
+<div>
+More than 50 new jobs have been published.
+</div>
+
+<div class="broadcast-meta">
+Sent to Job Seekers • 2026-06-20
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script>
+
+const form =
+document.getElementById(
+"broadcastForm"
+);
+
+form.addEventListener(
+"submit",
+function(e){
+
+e.preventDefault();
+
+const title =
+document.getElementById(
+"title"
+).value;
+
+const target =
+document.getElementById(
+"target"
+).value;
+
+const message =
+document.getElementById(
+"message"
+).value;
+
+const item =
+document.createElement("div");
+
+item.className =
+"broadcast-item";
+
+item.innerHTML = `
+<div class="broadcast-title">
+${title}
+</div>
+
+<div>
+${message}
+</div>
+
+<div class="broadcast-meta">
+Sent to ${target} •
+${new Date().toLocaleDateString()}
+</div>
+`;
+
+document
+.getElementById("broadcastList")
+.prepend(item);
+
+document
+.getElementById("successBox")
+.style.display="block";
+
+form.reset();
+
+/*
+
+SUPABASE
+
+await supabase
+.from("broadcasts")
+.insert([{
+title,
+message,
+target
+}]);
+
+*/
+
+});
+
+</script>
+
+</body>
+</html>

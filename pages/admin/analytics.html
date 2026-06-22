@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Analytics - SiraLink Admin</title>
+
+<link rel="stylesheet" href="../../assets/css/admin.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+.header{
+background:#0A3D91;
+color:white;
+padding:20px;
+}
+
+.container{
+padding:20px;
+}
+
+.stats{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:15px;
+margin-bottom:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h3{
+color:#666;
+margin-bottom:10px;
+}
+
+.card h1{
+color:#0A3D91;
+font-size:32px;
+}
+
+.section{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.section h2{
+margin-bottom:15px;
+color:#0A3D91;
+}
+
+.progress-box{
+margin-bottom:15px;
+}
+
+.progress-title{
+display:flex;
+justify-content:space-between;
+margin-bottom:6px;
+font-size:14px;
+}
+
+.progress{
+height:12px;
+background:#e5e7eb;
+border-radius:20px;
+overflow:hidden;
+}
+
+.progress-bar{
+height:100%;
+background:#0A3D91;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+}
+
+th{
+background:#0A3D91;
+color:white;
+padding:12px;
+text-align:left;
+}
+
+td{
+padding:12px;
+border-bottom:1px solid #eee;
+}
+
+@media(max-width:768px){
+
+table{
+display:block;
+overflow-x:auto;
+white-space:nowrap;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Analytics Dashboard</h1>
+</div>
+
+<div class="container">
+
+<div class="stats">
+
+<div class="card">
+<h3>Total Users</h3>
+<h1 id="usersCount">1250</h1>
+</div>
+
+<div class="card">
+<h3>Total Jobs</h3>
+<h1 id="jobsCount">185</h1>
+</div>
+
+<div class="card">
+<h3>Applications</h3>
+<h1 id="applicationsCount">3240</h1>
+</div>
+
+<div class="card">
+<h3>Profile Matches</h3>
+<h1 id="matchesCount">980</h1>
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>System Performance</h2>
+
+<div class="progress-box">
+
+<div class="progress-title">
+<span>User Activity</span>
+<span>90%</span>
+</div>
+
+<div class="progress">
+<div
+class="progress-bar"
+style="width:90%">
+</div>
+</div>
+
+</div>
+
+<div class="progress-box">
+
+<div class="progress-title">
+<span>Job Applications</span>
+<span>82%</span>
+</div>
+
+<div class="progress">
+<div
+class="progress-bar"
+style="width:82%">
+</div>
+</div>
+
+</div>
+
+<div class="progress-box">
+
+<div class="progress-title">
+<span>Profile Completion</span>
+<span>75%</span>
+</div>
+
+<div class="progress">
+<div
+class="progress-bar"
+style="width:75%">
+</div>
+</div>
+
+</div>
+
+</div>
+
+<div class="section">
+
+<h2>Top Departments</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Department</th>
+<th>Jobs</th>
+<th>Applications</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>IT</td>
+<td>45</td>
+<td>920</td>
+</tr>
+
+<tr>
+<td>Engineering</td>
+<td>38</td>
+<td>810</td>
+</tr>
+
+<tr>
+<td>Finance</td>
+<td>25</td>
+<td>520</td>
+</tr>
+
+<tr>
+<td>Marketing</td>
+<td>19</td>
+<td>315</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+<div class="section">
+
+<h2>Recent Activity</h2>
+
+<table>
+
+<thead>
+<tr>
+<th>Event</th>
+<th>Date</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>New Job Posted</td>
+<td>2026-06-20</td>
+</tr>
+
+<tr>
+<td>120 Applications Received</td>
+<td>2026-06-19</td>
+</tr>
+
+<tr>
+<td>35 New Users Registered</td>
+<td>2026-06-18</td>
+</tr>
+
+<tr>
+<td>Analytics Generated</td>
+<td>2026-06-17</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<script>
+
+/*
+
+Future Supabase Analytics Example
+
+const { data } =
+await supabase
+.from("analytics")
+.select("*");
+
+document.getElementById(
+"usersCount"
+).textContent =
+data.total_users;
+
+*/
+
+console.log(
+"Analytics Dashboard Loaded"
+);
+
+</script>
+
+</body>
+</html>

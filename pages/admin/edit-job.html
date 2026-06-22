@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Job - SiraLink Admin</title>
+
+<link rel="stylesheet" href="../../assets/css/admin.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+.header{
+background:#0A3D91;
+color:white;
+padding:20px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+margin-bottom:20px;
+color:#0A3D91;
+}
+
+.form-group{
+margin-bottom:18px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:bold;
+}
+
+input,
+select,
+textarea{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:14px;
+}
+
+textarea{
+resize:vertical;
+min-height:140px;
+}
+
+.row{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px;
+}
+
+.actions{
+display:flex;
+gap:10px;
+margin-top:20px;
+}
+
+.btn{
+padding:14px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+flex:1;
+}
+
+.primary{
+background:#0A3D91;
+color:white;
+}
+
+.warning{
+background:#ffc107;
+color:#222;
+}
+
+.danger{
+background:#dc3545;
+color:white;
+}
+
+.message{
+display:none;
+padding:12px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.success{
+background:#d4edda;
+color:#155724;
+}
+
+@media(max-width:768px){
+
+.row{
+grid-template-columns:1fr;
+}
+
+.actions{
+flex-direction:column;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Edit Job</h1>
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<div
+class="message success"
+id="successBox">
+Job updated successfully.
+</div>
+
+<h2>Update Job Information</h2>
+
+<form id="editJobForm">
+
+<div class="form-group">
+<label>Job Title</label>
+<input
+type="text"
+id="title"
+value="Software Engineer"
+required>
+</div>
+
+<div class="row">
+
+<div class="form-group">
+<label>Department</label>
+
+<select id="department">
+
+<option>IT</option>
+<option>Finance</option>
+<option>HR</option>
+<option>Engineering</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Location</label>
+
+<input
+type="text"
+id="location"
+value="Addis Ababa">
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="form-group">
+<label>Employment Type</label>
+
+<select id="type">
+
+<option>Full Time</option>
+<option>Part Time</option>
+<option>Remote</option>
+<option>Contract</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+<label>Experience Required</label>
+
+<input
+type="number"
+id="experience"
+value="2">
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="form-group">
+<label>Salary</label>
+
+<input
+type="text"
+id="salary"
+value="25,000 ETB">
+
+</div>
+
+<div class="form-group">
+<label>Deadline</label>
+
+<input
+type="date"
+id="deadline">
+
+</div>
+
+</div>
+
+<div class="form-group">
+
+<label>Requirements</label>
+
+<textarea id="requirements">
+JavaScript, HTML, CSS, Supabase
+</textarea>
+
+</div>
+
+<div class="form-group">
+
+<label>Description</label>
+
+<textarea id="description">
+Develop and maintain web applications.
+</textarea>
+
+</div>
+
+<div class="actions">
+
+<button
+type="submit"
+class="btn primary">
+Update Job
+</button>
+
+<button
+type="button"
+class="btn warning"
+onclick="previewJob()">
+Preview
+</button>
+
+<button
+type="button"
+class="btn danger"
+onclick="deleteJob()">
+Delete
+</button>
+
+</div>
+
+</form>
+
+</div>
+
+</div>
+
+<script>
+
+const form =
+document.getElementById(
+"editJobForm"
+);
+
+form.addEventListener(
+"submit",
+async(e)=>{
+
+e.preventDefault();
+
+const updatedJob = {
+
+title:
+document.getElementById("title").value,
+
+department:
+document.getElementById("department").value,
+
+location:
+document.getElementById("location").value,
+
+employment_type:
+document.getElementById("type").value,
+
+experience_required:
+document.getElementById("experience").value,
+
+salary:
+document.getElementById("salary").value,
+
+deadline:
+document.getElementById("deadline").value,
+
+requirements:
+document.getElementById("requirements").value,
+
+description:
+document.getElementById("description").value
+
+};
+
+console.log(updatedJob);
+
+/*
+
+SUPABASE UPDATE
+
+const { data,error } =
+await supabase
+.from("jobs")
+.update(updatedJob)
+.eq("id",jobId);
+
+*/
+
+document
+.getElementById("successBox")
+.style.display="block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+});
+
+function previewJob(){
+
+alert(
+"Preview feature ready for integration."
+);
+
+}
+
+function deleteJob(){
+
+const confirmDelete =
+confirm(
+"Are you sure you want to delete this job?"
+);
+
+if(!confirmDelete) return;
+
+/*
+
+SUPABASE DELETE
+
+await supabase
+.from("jobs")
+.delete()
+.eq("id",jobId);
+
+*/
+
+alert(
+"Job deleted successfully."
+);
+
+window.location.href =
+"jobs.html";
+
+}
+
+</script>
+
+</body>
+</html>

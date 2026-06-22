@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Settings - SiraLink</title>
+
+<link rel="stylesheet" href="../../assets/css/admin.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f5f7fb;
+}
+
+.header{
+background:#0A3D91;
+color:white;
+padding:20px;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+padding:20px;
+}
+
+.card{
+background:white;
+padding:20px;
+border-radius:15px;
+margin-bottom:20px;
+box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.card h2{
+color:#0A3D91;
+margin-bottom:15px;
+}
+
+.setting-row{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:15px 0;
+border-bottom:1px solid #eee;
+}
+
+.setting-row:last-child{
+border-bottom:none;
+}
+
+input,
+select{
+padding:10px;
+border:1px solid #ddd;
+border-radius:8px;
+width:250px;
+}
+
+.btn{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+cursor:pointer;
+font-weight:bold;
+}
+
+.primary{
+background:#0A3D91;
+color:white;
+}
+
+.success{
+display:none;
+background:#d4edda;
+color:#155724;
+padding:12px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.switch{
+position:relative;
+display:inline-block;
+width:50px;
+height:24px;
+}
+
+.switch input{
+display:none;
+}
+
+.slider{
+position:absolute;
+cursor:pointer;
+top:0;
+left:0;
+right:0;
+bottom:0;
+background:#ccc;
+transition:.3s;
+border-radius:30px;
+}
+
+.slider:before{
+position:absolute;
+content:"";
+height:18px;
+width:18px;
+left:3px;
+bottom:3px;
+background:white;
+transition:.3s;
+border-radius:50%;
+}
+
+input:checked + .slider{
+background:#0A3D91;
+}
+
+input:checked + .slider:before{
+transform:translateX(26px);
+}
+
+@media(max-width:768px){
+
+.setting-row{
+flex-direction:column;
+align-items:flex-start;
+gap:10px;
+}
+
+input,
+select{
+width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="header">
+<h1>Admin Settings</h1>
+</div>
+
+<div class="container">
+
+<div
+class="success"
+id="successBox">
+Settings saved successfully.
+</div>
+
+<div class="card">
+
+<h2>General Settings</h2>
+
+<div class="setting-row">
+<label>Platform Name</label>
+
+<input
+type="text"
+id="platformName"
+value="SiraLink">
+</div>
+
+<div class="setting-row">
+<label>Support Email</label>
+
+<input
+type="email"
+id="supportEmail"
+value="support@siralink.com">
+</div>
+
+<div class="setting-row">
+<label>Default Language</label>
+
+<select id="language">
+<option>English</option>
+<option>Amharic</option>
+</select>
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Notification Settings</h2>
+
+<div class="setting-row">
+
+<label>Email Notifications</label>
+
+<label class="switch">
+<input
+type="checkbox"
+checked>
+<span class="slider"></span>
+</label>
+
+</div>
+
+<div class="setting-row">
+
+<label>Push Notifications</label>
+
+<label class="switch">
+<input
+type="checkbox"
+checked>
+<span class="slider"></span>
+</label>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Job Settings</h2>
+
+<div class="setting-row">
+<label>Auto Expire Jobs</label>
+
+<label class="switch">
+<input
+type="checkbox"
+checked>
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="setting-row">
+<label>Default Expiry Days</label>
+
+<input
+type="number"
+value="30"
+id="expiryDays">
+</div>
+
+</div>
+
+<div class="card">
+
+<h2>Security Settings</h2>
+
+<div class="setting-row">
+<label>Require Admin Login</label>
+
+<label class="switch">
+<input
+type="checkbox"
+checked>
+<span class="slider"></span>
+</label>
+</div>
+
+<div class="setting-row">
+<label>Enable Activity Logs</label>
+
+<label class="switch">
+<input
+type="checkbox"
+checked>
+<span class="slider"></span>
+</label>
+</div>
+
+</div>
+
+<button
+class="btn primary"
+onclick="saveSettings()">
+Save Settings
+</button>
+
+</div>
+
+<script>
+
+function saveSettings(){
+
+const settings = {
+
+platform_name:
+document.getElementById(
+"platformName"
+).value,
+
+support_email:
+document.getElementById(
+"supportEmail"
+).value,
+
+language:
+document.getElementById(
+"language"
+).value,
+
+expiry_days:
+document.getElementById(
+"expiryDays"
+).value
+
+};
+
+console.log(settings);
+
+/*
+
+SUPABASE SAVE
+
+await supabase
+.from("settings")
+.upsert([settings]);
+
+*/
+
+document
+.getElementById(
+"successBox"
+)
+.style.display="block";
+
+window.scrollTo({
+top:0,
+behavior:"smooth"
+});
+
+}
+
+</script>
+
+</body>
+</html>
