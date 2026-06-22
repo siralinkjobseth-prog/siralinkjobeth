@@ -1,0 +1,29 @@
+# Environment Variables
+.env
+
+# Node Modules
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# Build Files
+dist/
+build/
+
+# Supabase
+.supabase/
+
+# IDE
+.vscode/
+.idea/
+
+# Temporary Files
+*.tmp
+*.temp
