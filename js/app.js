@@ -1,25 +1,13 @@
-import { authenticateUser }
-from "./auth/telegram-auth.js";
-
-(async () => {
-
-    const user =
-    await authenticateUser();
-
-    if(!user){
-
-        alert(
-        "Authentication Failed"
-        );
-
-        return;
-    }
+document.addEventListener(
+  "DOMContentLoaded",
+  () => {
 
     setTimeout(() => {
 
-        window.location.href =
-        "pages/splash.html";
+      window.location.href =
+      "pages/splash.html";
 
-    },1500);
+    }, 1000);
 
-})();
+  }
+);
