@@ -1,0 +1,467 @@
+/* ==================================
+   SiraLink Main CSS
+================================== */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:#f5f7fb;
+color:#333;
+line-height:1.6;
+}
+
+/* =====================
+   Container
+===================== */
+
+.container{
+width:90%;
+max-width:1200px;
+margin:auto;
+}
+
+/* =====================
+   Links
+===================== */
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+ul{
+list-style:none;
+}
+
+/* =====================
+   Navbar
+===================== */
+
+.navbar{
+background:#fff;
+padding:15px 25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 2px 10px rgba(0,0,0,.08);
+position:sticky;
+top:0;
+z-index:1000;
+}
+
+.navbar-logo img{
+height:45px;
+}
+
+.navbar-links{
+display:flex;
+gap:25px;
+align-items:center;
+}
+
+.navbar-links a{
+font-weight:600;
+color:#0A3D91;
+transition:.3s;
+}
+
+.navbar-links a:hover{
+color:#2563eb;
+}
+
+.user-avatar{
+width:45px;
+height:45px;
+border-radius:50%;
+object-fit:cover;
+border:2px solid #0A3D91;
+}
+
+/* =====================
+   Hero Section
+===================== */
+
+.hero{
+padding:80px 20px;
+text-align:center;
+background:linear-gradient(
+135deg,
+#0A3D91,
+#2563eb
+);
+color:white;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:18px;
+max-width:700px;
+margin:auto;
+}
+
+/* =====================
+   Buttons
+===================== */
+
+.btn,
+.btn-primary{
+background:#0A3D91;
+color:white;
+border:none;
+padding:12px 22px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+transition:.3s;
+}
+
+.btn:hover,
+.btn-primary:hover{
+opacity:.9;
+}
+
+.btn-secondary{
+background:#e5e7eb;
+color:#333;
+border:none;
+padding:12px 22px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+/* =====================
+   Cards
+===================== */
+
+.card{
+background:#fff;
+padding:20px;
+border-radius:15px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+/* =====================
+   Forms
+===================== */
+
+input,
+textarea,
+select{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+outline:none;
+font-size:14px;
+}
+
+input:focus,
+textarea:focus,
+select:focus{
+border-color:#0A3D91;
+}
+
+label{
+display:block;
+margin-bottom:6px;
+font-weight:600;
+}
+
+/* =====================
+   Job Card
+===================== */
+
+.job-card{
+background:#fff;
+padding:20px;
+border-radius:18px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+
+.job-card-header{
+display:flex;
+gap:15px;
+align-items:center;
+margin-bottom:15px;
+}
+
+.company-logo{
+width:60px;
+height:60px;
+border-radius:12px;
+object-fit:cover;
+}
+
+.job-title{
+font-size:20px;
+color:#0A3D91;
+}
+
+.company-name{
+color:#666;
+font-size:14px;
+}
+
+.job-description{
+margin-top:10px;
+color:#555;
+}
+
+.job-card-footer{
+display:flex;
+gap:10px;
+margin-top:15px;
+}
+
+.btn-apply{
+background:#0A3D91;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.btn-save{
+background:#f3f4f6;
+color:#333;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+/* =====================
+   Sidebar
+===================== */
+
+.sidebar{
+width:250px;
+background:#0A3D91;
+color:white;
+position:fixed;
+top:0;
+left:0;
+height:100vh;
+padding:20px;
+}
+
+.sidebar-header{
+text-align:center;
+margin-bottom:30px;
+}
+
+.sidebar-menu{
+padding:0;
+}
+
+.sidebar-menu li{
+margin-bottom:10px;
+}
+
+.sidebar-menu a{
+display:block;
+padding:12px;
+border-radius:10px;
+color:white;
+transition:.3s;
+}
+
+.sidebar-menu a:hover{
+background:rgba(255,255,255,.15);
+}
+
+/* =====================
+   Modal
+===================== */
+
+#siralinkModal{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,.5);
+justify-content:center;
+align-items:center;
+z-index:9999;
+}
+
+.modal-box{
+background:white;
+width:90%;
+max-width:500px;
+border-radius:15px;
+overflow:hidden;
+}
+
+.modal-header{
+background:#0A3D91;
+color:white;
+padding:15px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+}
+
+.modal-body{
+padding:20px;
+}
+
+.modal-footer{
+padding:15px;
+text-align:right;
+}
+
+.modal-btn{
+background:#0A3D91;
+color:white;
+border:none;
+padding:10px 18px;
+border-radius:8px;
+cursor:pointer;
+}
+
+.modal-close{
+background:none;
+border:none;
+font-size:28px;
+color:white;
+cursor:pointer;
+}
+
+/* =====================
+   Loader
+===================== */
+
+#siralinkLoader{
+display:none;
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(255,255,255,.95);
+justify-content:center;
+align-items:center;
+z-index:99999;
+}
+
+.loader-container{
+text-align:center;
+}
+
+.loader-spinner{
+width:60px;
+height:60px;
+border:6px solid #ddd;
+border-top:6px solid #0A3D91;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+.loader-text{
+margin-top:15px;
+font-weight:600;
+color:#0A3D91;
+}
+
+@keyframes spin{
+100%{
+transform:rotate(360deg);
+}
+}
+
+/* =====================
+   Toast
+===================== */
+
+#toastContainer{
+position:fixed;
+top:20px;
+right:20px;
+display:flex;
+flex-direction:column;
+gap:10px;
+z-index:99999;
+}
+
+.toast{
+padding:15px;
+border-radius:10px;
+color:white;
+font-weight:600;
+min-width:250px;
+}
+
+.toast-success{
+background:#28a745;
+}
+
+.toast-error{
+background:#dc3545;
+}
+
+.toast-warning{
+background:#ff9800;
+}
+
+.toast-info{
+background:#0A3D91;
+}
+
+/* =====================
+   Footer
+===================== */
+
+.siralink-footer{
+background:#0A3D91;
+color:white;
+margin-top:50px;
+}
+
+.footer-container{
+max-width:1200px;
+margin:auto;
+padding:40px 20px;
+display:flex;
+justify-content:space-between;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.footer-links{
+display:flex;
+gap:50px;
+flex-wrap:wrap;
+}
+
+.footer-links ul{
+padding:0;
+}
+
+.footer-links li{
+margin-bottom:10px;
+}
+
+.footer-bottom{
+padding:15px;
+text-align:center;
+border-top:1px solid rgba(255,255,255,.2);
+}

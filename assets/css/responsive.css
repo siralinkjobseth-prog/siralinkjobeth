@@ -1,0 +1,274 @@
+/* =========================
+   SiraLink Responsive CSS
+========================= */
+
+/* Large Tablets */
+
+@media (max-width: 1024px){
+
+.profile-grid{
+grid-template-columns:1fr;
+}
+
+.profile-header{
+flex-direction:column;
+text-align:center;
+}
+
+.stats-grid,
+.dashboard-stats{
+grid-template-columns:repeat(2,1fr);
+}
+
+.jobs-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+/* Tablets */
+
+@media (max-width: 768px){
+
+body{
+font-size:14px;
+}
+
+.container{
+padding:15px;
+}
+
+.navbar{
+flex-direction:column;
+gap:15px;
+}
+
+.nav-links{
+flex-wrap:wrap;
+justify-content:center;
+}
+
+.hero{
+padding:40px 20px;
+text-align:center;
+}
+
+.hero h1{
+font-size:32px;
+}
+
+.hero p{
+font-size:15px;
+}
+
+.dashboard-stats{
+grid-template-columns:1fr;
+}
+
+.stats-grid{
+grid-template-columns:1fr;
+}
+
+.jobs-grid{
+grid-template-columns:1fr;
+}
+
+.profile-stats{
+grid-template-columns:1fr;
+}
+
+.profile-actions{
+flex-direction:column;
+}
+
+.notifications-header{
+flex-direction:column;
+gap:15px;
+align-items:flex-start;
+}
+
+.notification-card{
+flex-direction:column;
+}
+
+.notification-actions{
+flex-direction:column;
+}
+
+table{
+display:block;
+overflow-x:auto;
+white-space:nowrap;
+}
+
+.admin-header{
+flex-direction:column;
+gap:15px;
+}
+
+.admin-actions{
+width:100%;
+display:flex;
+flex-direction:column;
+gap:10px;
+}
+
+}
+
+/* Mobile Phones */
+
+@media (max-width: 576px){
+
+.logo{
+font-size:20px;
+}
+
+.hero h1{
+font-size:26px;
+}
+
+.hero p{
+font-size:14px;
+}
+
+.card,
+.profile-card,
+.job-card,
+.notification-card{
+padding:15px;
+}
+
+.profile-avatar{
+width:100px;
+height:100px;
+}
+
+.btn,
+.btn-primary,
+.btn-secondary{
+width:100%;
+}
+
+input,
+textarea,
+select{
+width:100%;
+}
+
+.sidebar{
+width:100%;
+position:relative;
+height:auto;
+}
+
+.main-content{
+margin-left:0;
+}
+
+.footer{
+text-align:center;
+}
+
+.footer-links{
+flex-direction:column;
+gap:10px;
+}
+
+}
+
+/* Small Phones */
+
+@media (max-width: 400px){
+
+.hero h1{
+font-size:22px;
+}
+
+.profile-info h1{
+font-size:22px;
+}
+
+.notifications-header h1{
+font-size:24px;
+}
+
+.stat-card h3{
+font-size:22px;
+}
+
+.card{
+padding:12px;
+}
+
+}
+
+/* Landscape Phones */
+
+@media (max-height: 500px){
+
+.hero{
+padding:20px;
+}
+
+.profile-header{
+padding:15px;
+}
+
+}
+
+/* Images Responsive */
+
+img{
+max-width:100%;
+height:auto;
+display:block;
+}
+
+/* Responsive Videos */
+
+video,
+iframe{
+max-width:100%;
+height:auto;
+}
+
+/* Responsive Tables */
+
+.table-responsive{
+overflow-x:auto;
+width:100%;
+}
+
+/* Responsive Forms */
+
+form{
+width:100%;
+}
+
+form input,
+form textarea,
+form select{
+max-width:100%;
+}
+
+/* Utility Classes */
+
+.hide-mobile{
+display:block;
+}
+
+.show-mobile{
+display:none;
+}
+
+@media(max-width:768px){
+
+.hide-mobile{
+display:none;
+}
+
+.show-mobile{
+display:block;
+}
+
+}

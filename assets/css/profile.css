@@ -1,0 +1,206 @@
+/* =========================
+   SiraLink Profile Page
+========================= */
+
+.profile-container{
+max-width:1200px;
+margin:30px auto;
+padding:20px;
+}
+
+.profile-header{
+background:#ffffff;
+border-radius:20px;
+padding:30px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+display:flex;
+align-items:center;
+gap:25px;
+margin-bottom:25px;
+}
+
+.profile-avatar{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #0A3D91;
+}
+
+.profile-info h1{
+font-size:30px;
+color:#0A3D91;
+margin-bottom:10px;
+}
+
+.profile-info p{
+color:#666;
+font-size:15px;
+margin-bottom:6px;
+}
+
+.profile-completion{
+margin-top:15px;
+}
+
+.profile-completion span{
+font-size:14px;
+font-weight:600;
+}
+
+.progress-bar{
+width:100%;
+height:10px;
+background:#e5e7eb;
+border-radius:20px;
+overflow:hidden;
+margin-top:8px;
+}
+
+.progress-fill{
+height:100%;
+width:80%;
+background:#0A3D91;
+border-radius:20px;
+}
+
+.profile-grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px;
+}
+
+.profile-card{
+background:#fff;
+border-radius:20px;
+padding:25px;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.profile-card h2{
+color:#0A3D91;
+margin-bottom:15px;
+font-size:20px;
+}
+
+.profile-item{
+margin-bottom:15px;
+}
+
+.profile-item label{
+display:block;
+font-size:14px;
+font-weight:600;
+color:#555;
+margin-bottom:5px;
+}
+
+.profile-item input,
+.profile-item textarea,
+.profile-item select{
+width:100%;
+padding:12px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:14px;
+outline:none;
+}
+
+.profile-item input:focus,
+.profile-item textarea:focus,
+.profile-item select:focus{
+border-color:#0A3D91;
+}
+
+.profile-item textarea{
+resize:vertical;
+min-height:120px;
+}
+
+.skills{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+}
+
+.skill{
+background:#eaf1ff;
+color:#0A3D91;
+padding:8px 14px;
+border-radius:20px;
+font-size:13px;
+font-weight:600;
+}
+
+.profile-actions{
+margin-top:20px;
+display:flex;
+gap:15px;
+}
+
+.btn-primary{
+background:#0A3D91;
+color:white;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.btn-secondary{
+background:#f3f4f6;
+color:#333;
+border:none;
+padding:12px 20px;
+border-radius:10px;
+cursor:pointer;
+font-weight:600;
+}
+
+.btn-primary:hover{
+opacity:.9;
+}
+
+.btn-secondary:hover{
+background:#e5e7eb;
+}
+
+.cv-upload{
+border:2px dashed #0A3D91;
+padding:25px;
+border-radius:15px;
+text-align:center;
+cursor:pointer;
+}
+
+.cv-upload p{
+color:#666;
+margin-top:10px;
+}
+
+.profile-stats{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+margin-bottom:20px;
+}
+
+.stat-card{
+background:#fff;
+padding:20px;
+border-radius:15px;
+text-align:center;
+box-shadow:0 4px 15px rgba(0,0,0,0.08);
+}
+
+.stat-card h3{
+font-size:28px;
+color:#0A3D91;
+margin-bottom:5px;
+}
+
+.stat-card p{
+font-size:14px;
+color:#666;
+}
