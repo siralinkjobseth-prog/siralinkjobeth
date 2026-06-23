@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="am">
+<html lang="en">
 <head>
 
 <meta charset="UTF-8">
@@ -7,15 +7,45 @@
 
 <title>SiraLink</title>
 
-<link rel="icon"
-href="assets/images/branding/favicon.png">
+<link rel="icon" href="assets/images/branding/favicon.png">
 
-<link rel="stylesheet"
-href="assets/css/main.css">
+<link rel="stylesheet" href="assets/css/main.css">
 
 <script src="https://telegram.org/js/telegram-web-app.js"></script>
 
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<style>
+
+.loading-screen{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:#f5f7fb;
+text-align:center;
+}
+
+.loading-logo{
+width:120px;
+height:120px;
+object-fit:contain;
+margin-bottom:20px;
+}
+
+.loading-screen h2{
+font-size:36px;
+color:#0A3D91;
+margin-bottom:10px;
+}
+
+.loading-screen p{
+color:#666;
+font-size:16px;
+}
+
+</style>
 
 </head>
 
@@ -23,22 +53,31 @@ href="assets/css/main.css">
 
 <div id="app">
 
-    <div class="loading-screen">
+<div class="loading-screen">
 
-        <img
-        src="assets/images/branding/splash-logo.png"
-        alt="SiraLink Logo"
-        class="loading-logo">
+<img
+src="assets/images/branding/splash-logo.png"
+alt="SiraLink Logo"
+class="loading-logo">
 
-        <h2>SiraLink</h2>
+<h2>SiraLink</h2>
 
-        <p>Smart Recruitment Ecosystem</p>
-
-    </div>
+<p>Smart Recruitment Ecosystem</p>
 
 </div>
 
-<script type="module" src="js/app.js"></script>
+</div>
+
+<script>
+
+setTimeout(()=>{
+
+window.location.href =
+"pages/splash.html";
+
+},1500);
+
+</script>
 
 </body>
 </html>
